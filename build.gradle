@@ -6,10 +6,17 @@ mainClassName = "com.nrkpj.biilviewer.ElectricityBillRetriever"
 
 sourceCompatibility = 1.8
 version = '1.0'
-jar {
+
+task fatjar(type: Jar) {
+    from files(sourceSets.main.output.classesDir)
+    from files(sourceSets.main.resources)
+    from {configurations.compile.collect {zipTree(it)}} {
+        exclude "META-INF/*"
+    }
     manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart',
-                   'Implementation-Version': version
+                   'Implementation-Version': version,
+                   'Main-Class': 'com.nrkpj.biilviewer.ElectricityBillRetriever'
     }
 }
 
@@ -40,16 +47,4 @@ dependencies {
     compile 'org.jsoup:jsoup:1.9.2'
     
     testCompile group: 'junit', name: 'junit', version: '4.+'
-}
-
-test {
-    systemProperties 'property': 'value'
-}
-
-uploadArchives {
-    repositories {
-       flatDir {
-           dirs 'repos'
-       }
-    }
 }
