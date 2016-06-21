@@ -1,9 +1,9 @@
-package com.nrkpj.biilviewer.tsspdcl;
+package com.nrkpj.billviewer.tsspdcl;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
-import com.nrkpj.biilviewer.ServiceResponseToHtmlBuilder;
+import com.nrkpj.billviewer.ServiceResponseToHtmlBuilder;
 
 class TSSPDCLResponseToHtmlBuilder implements ServiceResponseToHtmlBuilder {
     @Override

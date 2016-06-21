@@ -1,19 +1,21 @@
-package com.nrkpj.biilviewer;
+package com.nrkpj.billviewer;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Tag;
 
-import com.nrkpj.biilviewer.tsspdcl.TSSPDCLBillRetriever;
+import com.nrkpj.billviewer.tsspdcl.TSSPDCLBillRetriever;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        readProperties().forEach((key, value) -> System.setProperty(key.toString(), value.toString()));
+        readProperties(args).forEach((key, value) -> System.setProperty(key.toString(), value.toString()));
 
         File htmlPage = new File("index.html");
         try (FileWriter writer = new FileWriter(htmlPage)) {
@@ -34,11 +36,23 @@ public class Main {
                 .appendChild(new Element(Tag.valueOf("td"), "").appendChild(generator.generate()));
     }
 
-    private static Properties readProperties() throws IOException {
+    private static Properties readProperties(String[] args) throws IOException {
         Properties properties = new Properties();
         Main.class.getClassLoader();
         InputStream stream = ClassLoader.getSystemResourceAsStream("bills.properties");
         properties.load(stream);
+        if (args != null && args.length > 0) {
+            Arrays.asList(args).forEach(path -> {
+                try {
+                    InputStream ps = FileUtils.openInputStream(new File(path));
+                    if (ps != null) {
+                        properties.load(ps);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Failed to read properties from : " + path);
+                }
+            });
+        }
         return properties;
     }
 }

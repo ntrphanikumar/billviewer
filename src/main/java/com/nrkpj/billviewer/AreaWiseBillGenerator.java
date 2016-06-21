@@ -1,6 +1,6 @@
-package com.nrkpj.biilviewer;
+package com.nrkpj.billviewer;
 
-import static com.nrkpj.biilviewer.ServiceResponseToHtmlBuilder.DIV;
+import static com.nrkpj.billviewer.ServiceResponseToHtmlBuilder.DIV;
 
 import java.io.File;
 import java.io.FileWriter;

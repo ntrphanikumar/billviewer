@@ -1,4 +1,4 @@
-package com.nrkpj.biilviewer;
+package com.nrkpj.billviewer;
 
 import org.jsoup.nodes.Element;
 

@@ -1,4 +1,4 @@
-package com.nrkpj.biilviewer.tsspdcl;
+package com.nrkpj.billviewer.tsspdcl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Tag;
 
-import com.nrkpj.biilviewer.AreaWiseBillGenerator;
-import com.nrkpj.biilviewer.ServiceViewGenerator;
-import com.nrkpj.biilviewer.ServiceResponseToHtmlBuilder;
+import com.nrkpj.billviewer.AreaWiseBillGenerator;
+import com.nrkpj.billviewer.ServiceResponseToHtmlBuilder;
+import com.nrkpj.billviewer.ServiceViewGenerator;
 
 public class TSSPDCLBillRetriever implements ServiceViewGenerator {
 

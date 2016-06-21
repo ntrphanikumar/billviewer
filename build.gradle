@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 apply plugin:'application'
-mainClassName = "com.nrkpj.biilviewer.Main"
+mainClassName = "com.nrkpj.billviewer.Main"
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -16,7 +16,7 @@ task fatjar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart',
                    'Implementation-Version': version,
-                   'Main-Class': 'com.nrkpj.biilviewer.Main'
+                   'Main-Class': 'com.nrkpj.billviewer.Main'
     }
 }
 
